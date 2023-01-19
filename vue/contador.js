@@ -8,5 +8,5 @@ Vue.createApp({
         incrementar() {
             this.contador++;
         }
-    },
-}).mount('#app');
+    }
+}).mount('#app')
