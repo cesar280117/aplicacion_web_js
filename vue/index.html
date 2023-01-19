@@ -11,30 +11,15 @@
 <body>
 
     <div id="app">
-        <h1>Contador:{{contador}}</h1>
-        <button v-on:click="incrementar()">incrementar </button>
+    <h1 v-if="becado==true">Ya tengo beca :)</h1>
+    <h1 v-else>Ya no tengo la veca :(</h1>
+    <button @click="conBeca()">Estas becado</button>
+    <button @click="sinBeca()">Ya no estas becado</button>
     </div>
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-        Vue.createApp({
-            data() {
-                return {
-                    contador: 20,
-                }
-            },
-            methods: {
-                incrementar() {
-                    this.contador++;
-                },
-                saludo() {
-
-                },
-
-            }
-        }).mount('#app');
-    </script>
+    <script src="condicionales.js"></script>
 
 </body>
 
