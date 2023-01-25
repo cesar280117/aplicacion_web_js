@@ -11,12 +11,28 @@
 <body>
 
     <div id="app">
-       
+        <h1>Mis compras</h1>
+        <input v-model="producto" placeholder="nombre del producto" type="text">
+        <button @click="agregar()">Agregar</button>
+        <button @click="carrito=[]">Limpiar</button>
+
+        <ul>
+            <li v-for="producto in carrito">
+                {{producto}}
+            </li>
+        </ul>
+
+
+        <table>
+            <tr v-for="producto in carrito">
+                <th> {{producto}}</th>
+            </tr>
+        </table>
     </div>
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="ejercicio1.js"></script>
+    <script src="carrito.js"></script>
 </body>
 
 </html>
