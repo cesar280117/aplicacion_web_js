@@ -14,20 +14,25 @@
 
     <div class="container mt-3" id="app">
         <h1>Mis productos</h1>
-        <form>
+        <form @submit.prevent="agregar()">
             <div class="mb-3">
                 <label class="form-label">Nombre del producto</label>
-                <input type="text" class="form-control">
+                <input required v-model="nombre" type="text" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Precio del producto</label>
-                <input type="number" class="form-control">
+                <input required v-model="precio" type="number" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Cantidad de productos</label>
-                <input type="number" class="form-control">
+                <input required v-model="cantidad" type="number" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Url de la foto</label>
+                <input required v-model="url" type="text" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-primary">Agregar</button>
@@ -40,26 +45,22 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Cantidad</th>
+                    <th scope="col">Imagen</th>
+
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+
+                <tr v-for="producto in productos">
+                    <th scope="row">{{producto.nombre}}</th>
+                    <td>{{producto.precio}}</td>
+                    <td>{{producto.cantidad}}</td>
+                    <td><img :src="producto.url" alt="" style="width: 100px;"></td>
+
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+
+
+
             </tbody>
         </table>
 
