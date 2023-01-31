@@ -1,12 +1,16 @@
 Vue.createApp({
     data() {
         return {
-            contador: 0
+            contador: 20,
         }
     },
     methods: {
         incrementar() {
             this.contador++;
-        }
+        },
+        saludo() {
+
+        },
+
     }
-}).mount('#app')
+}).mount('#app');
