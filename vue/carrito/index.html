@@ -32,7 +32,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Url de la foto</label>
-                <input required v-model="url" type="text" class="form-control">
+                <input v-model="url" type="text" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-primary">Agregar</button>
@@ -63,7 +63,8 @@
             </tbody>
         </table>
 
-
+        <p class="text-primary">Total {{calcular}}</p>
+        {{descuento}} %
 
     </div>
 
