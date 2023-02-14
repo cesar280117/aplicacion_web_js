@@ -8,8 +8,8 @@ Vue.createApp({
         async getPokemon() {
             //GET     ----- Obtener recursos
             //POST    ----- para crear recursos
-            //PUT     ---- Modificar recursos
-            //DELETE  ---- Eliminar Recuersos
+            //PUT     -----  Modificar recursos
+            //DELETE  -----  Eliminar Recuersos
 
 
             const random = Math.floor(Math.random() * 630);
