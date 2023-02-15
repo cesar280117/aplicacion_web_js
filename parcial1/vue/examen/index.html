@@ -12,59 +12,54 @@
 
 <body>
 
+
     <div class="container mt-3" id="app">
-        <h1>Mis productos</h1>
+
         <form @submit.prevent="agregar()">
             <div class="mb-3">
-                <label class="form-label">Nombre del producto</label>
+                <label class="form-label">Nombre del curso</label>
                 <input required v-model="nombre" type="text" class="form-control">
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Precio del producto</label>
+                <label class="form-label">descripcion del curso</label>
+                <textarea  class="form-control" v-model="descripcion" cols="20" rows="5"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Precio del curso</label>
                 <input required v-model="precio" type="number" class="form-control">
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Cantidad de productos</label>
+                <label class="form-label">Cantidad de curso</label>
                 <input required v-model="cantidad" type="number" class="form-control">
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Url de la foto</label>
-                <input v-model="url" type="text" class="form-control">
+                <label class="form-label">Url del curso</label>
+                <input required v-model="url" type="text" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button type="submit" class="btn btn-primary mb-3">Agregar</button>
         </form>
 
 
-        <table class="table mt-5">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Imagen</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="d-flex flex-wrap">
+            <div v-for="curso in cursos" class="card m-2" style="width: 18rem;">
+                <img :src="curso.url" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{curso.nombre}}</h5>
+                    <p class="card-text">{{curso.descripcion}}</p>
+                    <a class="btn btn-primary">Precio  ${{curso.precio}}</a>
+                    <a class="btn btn-link">cantinda comprados: {{curso.cantidad}}</a>
 
-                <tr v-for="producto in productos">
-                    <th scope="row">{{producto.nombre}}</th>
-                    <td>{{producto.precio}}</td>
-                    <td>{{producto.cantidad}}</td>
-                    <td><img :src="producto.url" alt="" style="width: 100px;"></td>
+                </div>
+            </div>
+        </div>
 
-                </tr>
+        <h4 class="text-primary">Acumulado: {{calcular}}</h4>
 
-
-
-            </tbody>
-        </table>
-
-        <p class="text-primary">Total {{calcular}}</p>
-        {{descuento}} %
 
     </div>
 
@@ -74,7 +69,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="carrito.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
