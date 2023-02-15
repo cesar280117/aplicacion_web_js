@@ -24,8 +24,10 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h2 class="card-title">{{pokemon.name}}</h2>
-                         <p>Habilidades</p>
-                         <small class="badge bg-primary mx-1" v-for="habilidad in pokemon.abilities">{{habilidad.ability.name}}</small>
+                        <p>Habilidades</p>
+                        <span v-for="abilidad in pokemon.abilities" class="mx-1 badge bg-success">
+                            {{abilidad.ability.name}}
+                        </span>
                     </div>
                 </div>
             </div>
