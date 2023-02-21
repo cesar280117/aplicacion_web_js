@@ -13,25 +13,29 @@
 <body>
 
     <div class="container mt-3" id="app">
-        <button @click="getPokemon()" class="btn btn-primary mb-5">Generar</button>
 
-        <div v-if="pokemon!=null" class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img :src="pokemon.sprites.other.dream_world.front_default" class="img-fluid rounded-start"
-                        alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h2 class="card-title">{{pokemon.name}}</h2>
-                        <p>Habilidades</p>
-                        <span v-for="abilidad in pokemon.abilities" class="mx-1 badge bg-success">
-                            {{abilidad.ability.name}}
-                        </span>
+        <div class="d-flex flex-wrap">
+            <div v-for="pokemon in pokemones" v-if="pokemones.length>0" class="card m-1" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img :src="pokemon.sprites.other.dream_world.front_default" class="img-fluid rounded-start"
+                            alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">{{pokemon.name}}</h2>
+                            <p>Habilidades</p>
+                            <span v-for="abilidad in pokemon.abilities" class="mx-1 badge bg-success">
+                                {{abilidad.ability.name}}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
+
+
 
     </div>
 
