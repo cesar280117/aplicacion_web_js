@@ -13,11 +13,15 @@
 <body>
 
     <div class="container mt-3" id="app">
-       
-        <!-- Button trigger modal -->
 
 
-        <select class="form-control" v-model="limit">
+        <div v-if="loading==true">
+            <img src="images/loading.gif" alt="cargando...">
+            <h4 class="text-warning">Cargando...</h4>
+        </div>
+
+
+        <select v-model="limit" class="my-2 form-control">
             <option>20</option>
             <option>50</option>
             <option>100</option>
@@ -25,17 +29,13 @@
             <option>300</option>
             <option>400</option>
             <option>500</option>
+            <option>600</option>
+            <option>700</option>
+            <option>800</option>
         </select>
+
         <div class="d-flex flex-wrap">
-
-
-            <div v-if="loading==true">
-                <img src="https://i.pinimg.com/originals/66/89/dc/6689dc331be27e66349ce9a4d15ddff3.gif" alt="">
-                <p>Loading.....</p>
-            </div>
-
-            <div v-for="pokemon in pokemones" v-if="loading==false" data-bs-toggle="modal"
-                data-bs-target="#exampleModal" class="card m-1" style="width: 14rem;">
+            <div v-if="loading==false" v-for="pokemon in pokemones" class="card m-1" style="width: 14rem;">
                 <img :src="pokemon.sprites.other.dream_world.front_default" class="img-fluid rounded-start" alt="...">
                 <div class="card-body">
                     <h2 class="card-title">{{pokemon.name}}</h2>
@@ -54,32 +54,11 @@
 
 
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="app.js"></script>
 </body>
 
 </html>
